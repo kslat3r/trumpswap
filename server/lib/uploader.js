@@ -28,6 +28,8 @@ module.exports = () => {
             return resolve(req.url);
           }
 
+          console.log(res);
+
           return reject(res);
         });
 
