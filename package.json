@@ -1,14 +1,14 @@
 {
-  "name": "christos-face-swapper",
+  "name": "trumpswap",
   "version": "1.0.0",
   "engines": {
     "node": "7.5.0"
   },
-  "description": "Swap any faces in an image with Christos's face!",
+  "description": "Swap any faces in an image with Trump's face!",
   "main": "server/index.js",
   "scripts": {
     "start": "node --harmony server/",
-    "start-dev": "NODE_ENV=development nodemon --exec \"node --harmony server/\""
+    "start-dev": "source .env && nodemon --exec \"node --harmony server/\""
   },
   "repository": {
     "type": "git",
