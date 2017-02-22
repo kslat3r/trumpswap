@@ -1,21 +1,23 @@
 const Promise = require('bluebird');
 const jimp = require('jimp');
-const christosPath = `${__dirname}/../assets/christos.png`;
+const getRandomTrump = require('./getRandomTrump');
 
 module.exports = async (buffer, mimeType) => {
+  const trumpPath = getRandomTrump();
+
   const image = await jimp.read(buffer);
-  const christos = await jimp.read(christosPath);
+  const trump = await jimp.read(trumpPath);
 
   // rotate
 
-  christos.rotate(-30, jimp.RESIZE_BEZIER);
+  trump.rotate(-30, jimp.RESIZE_BEZIER);
 
   // add to image
 
   const x = image.bitmap.width - 200;
   const y = image.bitmap.height - 200;
 
-  image.composite(christos, x, y);
+  image.composite(trump, x, y);
 
   // return buffer
 

@@ -1,6 +1,6 @@
 const getFaces = require('./getFaces');
-const overlayChristosOnFace = require('./overlayChristosOnFace');
-const overlayChristosOnEdge = require('./overlayChristosOnEdge');
+const overlayTrumpOnFace = require('./overlayTrumpOnFace');
+const overlayTrumpOnEdge = require('./overlayTrumpOnEdge');
 
 module.exports = async (buffer, mimeType) => {
   const faces = await getFaces(buffer);
@@ -11,10 +11,10 @@ module.exports = async (buffer, mimeType) => {
 
   if (faces.length) {
     for (let i in faces) {
-      buffer = await overlayChristosOnFace(faces[i], buffer, mimeType);
+      buffer = await overlayTrumpOnFace(faces[i], buffer, mimeType);
     }
   } else {
-    buffer = await overlayChristosOnEdge(buffer, mimeType);
+    buffer = await overlayTrumpOnEdge(buffer, mimeType);
   }
 
   return Promise.resolve(buffer);

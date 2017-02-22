@@ -6,7 +6,7 @@ const swapper = require('../lib/swapper');
 module.exports = {
   get: async (ctx, next) => {
     await ctx.render('create', {
-      title: 'Create a Christos faceswap'
+      title: 'Create a Trump faceswap'
     });
 
     await next();
