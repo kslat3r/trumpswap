@@ -1,5 +1,5 @@
-const imagesPath = `${__dirname}/../assets`;
-const numImages = 6;
+const imagesPath = `${__dirname}/../assets/trumps`;
+const numImages = 12;
 
 module.exports = () => {
   const randomNumber = Math.floor((Math.random() * numImages) + 1);

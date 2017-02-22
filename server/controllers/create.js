@@ -1,12 +1,14 @@
 const fs = require('async-file');
 const uuid = require('uuid');
+const getTrumps = require('../lib/getTrumps');
 const uploader = require('../lib/uploader');
 const swapper = require('../lib/swapper');
 
 module.exports = {
   get: async (ctx, next) => {
     await ctx.render('create', {
-      title: 'Create a Trump faceswap'
+      title: 'Create a Trump faceswap',
+      trumps: getTrumps(),
     });
 
     await next();
@@ -33,7 +35,7 @@ module.exports = {
     // add christos's face
 
     try {
-      data = await swapper(data, mimeType);
+      data = await swapper(data, mimeType, ctx.request.body.fields.faceNum);
     } catch (e) {
       ctx.throw(500, e.message, { exception: e });
     }

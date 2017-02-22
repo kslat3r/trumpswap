@@ -1,0 +1,28 @@
+body {
+  margin-top: 50px;
+}
+
+.trumps {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trumps .thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trumps .thumbnail img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.trumps input[name="faceNum"] {
+  display: none;
+}
+
+.trumps input[name="faceNum"]:checked + .image {
+  background-color: #FA8C6E;
+}

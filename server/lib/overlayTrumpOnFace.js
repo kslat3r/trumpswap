@@ -1,9 +1,16 @@
 const Promise = require('bluebird');
 const jimp = require('jimp');
+const getTrump = require('./getTrump');
 const getRandomTrump = require('./getRandomTrump');
 
-module.exports = async (face, buffer, mimeType) => {
-  const trumpPath = getRandomTrump();
+module.exports = async (face, buffer, mimeType, faceNum) => {
+  let trumpPath;
+
+  if (faceNum) {
+    trumpPath = getTrump(faceNum);
+  } else {
+    trumpPath = getRandomTrump();
+  }
 
   const image = await jimp.read(buffer);
   const trump = await jimp.read(trumpPath);

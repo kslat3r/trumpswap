@@ -11,9 +11,27 @@
 
       <div class="panel-body">
         <div class="form-group">
-          <label class="control-label col-xs-3" for="image">Image with faces to swap &ast;</label>
+          <label class="control-label col-xs-3" for="image">Chose your image</label>
           <div class="col-xs-9">
-            <input class="form-control" name="image" type="file" required="required" />
+            <input class="form-control" name="image" type="file" required="required">
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="control-label col-xs-3" for="image">Choose your trump</label>
+          <div class="col-xs-9 trumps">
+            {{#each trumps}}
+              <div class="col-xs-3 thumbnail">
+                <label for="faceNum_{{this.id}}">
+                <input id="faceNum_{{this.id}}" type="radio" name="faceNum" value="{{this.id}}">
+
+                <div class="image">
+                  <img src="/trumps/{{this.fileName}}" alt="{{this.id}}">
+                </div>
+              </div>
+            {{/each}}
           </div>
         </div>
       </div>

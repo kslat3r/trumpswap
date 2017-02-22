@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const adapt = require('koa-adapter');
 const handlebars = require('koa-handlebars');
 const body = require('koa-body');
+const serve = require('koa-static');
 const error = require('./lib/error');
 
 // lib
@@ -19,6 +20,8 @@ const router = new Router();
 app.use(body({
   multipart: true,
 }));
+
+app.use(adapt(serve(`${__dirname}/assets`)));
 
 app.use(handlebars({
   cache: process.env.NODE_ENV !== "development",
